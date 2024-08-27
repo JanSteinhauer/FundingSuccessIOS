@@ -33,6 +33,7 @@
 		EBCC3B362C7E17EC002D70C5 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = EBCC3B352C7E17EC002D70C5 /* FirebaseRemoteConfig */; };
 		EBCC3B382C7E17EC002D70C5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EBCC3B372C7E17EC002D70C5 /* FirebaseStorage */; };
 		EBCC3B3C2C7E1A74002D70C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3B2C7E1A74002D70C5 /* LoginView.swift */; };
+		EBCC3B3E2C7E1F06002D70C5 /* MainPagevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		EBCC3B222C7E120A002D70C5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EBCC3B242C7E172D002D70C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBCC3B3B2C7E1A74002D70C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagevView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				EBCC3B222C7E120A002D70C5 /* Color.swift */,
 				EBCC3B242C7E172D002D70C5 /* GoogleService-Info.plist */,
 				EBCC3B3B2C7E1A74002D70C5 /* LoginView.swift */,
+				EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */,
 			);
 			path = fundingSuccess;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				EBCC3AEC2C7E0838002D70C5 /* ContentView.swift in Sources */,
 				EBCC3B3C2C7E1A74002D70C5 /* LoginView.swift in Sources */,
 				EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */,
+				EBCC3B3E2C7E1F06002D70C5 /* MainPagevView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,3 @@
-//
-//  LoginView.swift
-//  fundingSuccess
-//
-//  Created by Steinhauer, Jan on 8/27/24.
-//
-
 import SwiftUI
 import Firebase
 import FirebaseAuth
@@ -16,102 +9,108 @@ struct LoginView: View {
     @State private var showForgotPassword: Bool = false
     @State private var showSignup: Bool = false
     @State private var showHome: Bool = false
+    @State private var showMainPage: Bool = false
     @State private var errorMessage: String = ""
     @State private var rememberMe: Bool = false
 
-    
     let db = Firestore.firestore()
 
     var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
-            
-            VStack(spacing: 20) {
-                // Logo
-                FundingSuccessLogoSVGView()
-                    .padding(.top, 20)
+        NavigationStack {
+            ZStack {
+                Color.white.edgesIgnoringSafeArea(.all)
                 
-                Spacer()
-                
-                // Title and Subtitle
-                Text("Welcome back")
-                    .font(.largeTitle)
-                    .foregroundColor(darkBlue)
-                
-                Text("Sign in to continue")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 24)
-                
-                // Form
-                VStack(spacing: 15) {
-                    TextField("Email", text: $email)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(5)
+                VStack(spacing: 20) {
+                    // Logo
+                    FundingSuccessLogoSVGView()
+                        .padding(.top, 20)
                     
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(5)
+                    Spacer()
                     
-                    VStack(alignment: .leading, spacing: 15) {
-                        // Remember Me Toggle with Label
-                        HStack {
-                            Text("Remember me")
-                                .foregroundColor(.gray)
+                    // Title and Subtitle
+                    Text("Welcome back")
+                        .font(.largeTitle)
+                        .foregroundColor(darkBlue)
+                    
+                    Text("Sign in to continue")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 24)
+                    
+                    // Form
+                    VStack(spacing: 15) {
+                        TextField("Email", text: $email)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(5)
+                        
+                        SecureField("Password", text: $password)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(5)
+                        
+                        VStack(alignment: .leading, spacing: 15) {
+                            // Remember Me Toggle with Label
+                            HStack {
+                                Text("Remember me")
+                                    .foregroundColor(.gray)
+                                
+                                Spacer()
+                                
+                                Toggle("", isOn: $rememberMe)
+                                    .labelsHidden()
+                            }
                             
-                            Spacer()
-                            
-                            Toggle("", isOn: $rememberMe)
-                                .labelsHidden()
+                            // Forgot Password Button
+                            Button(action: {
+                                showForgotPassword.toggle()
+                            }) {
+                                Text("Forgot password?")
+                                    .foregroundColor(darkBlue)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                         
-                        // Forgot Password Button
-                        Button(action: {
-                            showForgotPassword.toggle()
-                        }) {
-                            Text("Forgot password?")
-                                .foregroundColor(darkBlue)
+                        // Sign In Button
+                        Button(action: onLogin) {
+                            Text("Sign In")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(darkBlue)
+                                .cornerRadius(5)
                         }
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        
+                        // Error Message
+                        if !errorMessage.isEmpty {
+                            Text(errorMessage)
+                                .foregroundColor(.red)
+                        }
                     }
-
+                    .padding(.horizontal, 32)
                     
-                    // Sign In Button
-                    Button(action: onLogin) {
-                        Text("Sign In")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(darkBlue)
-                            .cornerRadius(5)
-                    }
+                    Spacer()
                     
-                    // Error Message
-                    if !errorMessage.isEmpty {
-                        Text(errorMessage)
-                            .foregroundColor(.red)
+                    // Sign Up
+                    Button(action: {
+                        showSignup.toggle()
+                    }) {
+                        Text("Don’t have an account? Sign Up")
+                            .foregroundColor(darkBlue)
                     }
+                    .padding(.bottom, 20)
                 }
-                .padding(.horizontal, 32)
                 
-                Spacer()
-                
-                // Sign Up
-                Button(action: {
-                    showSignup.toggle()
-                }) {
-                    Text("Don’t have an account? Sign Up")
-                        .foregroundColor(darkBlue)
-                }
-                .padding(.bottom, 20)
+                // Navigation to Main Page after successful login
+                .navigationDestination(isPresented: $showMainPage) {
+                                    MainPageView()
+                                }
             }
+//            .navigate(to: ForgotPasswordView(), when: $showForgotPassword)
+//            .navigate(to: SignupView(), when: $showSignup)
+//            .navigate(to: HomeView(), when: $showHome)
         }
-//        .navigate(to: ForgotPasswordView(), when: $showForgotPassword)
-//        .navigate(to: SignupView(), when: $showSignup)
-//        .navigate(to: HomeView(), when: $showHome)
     }
     
     private func onLogin() {
@@ -136,13 +135,13 @@ struct LoginView: View {
                     if completedStep < 4 {
                         showSignup.toggle()
                     } else {
-                        showHome.toggle()
+                        showMainPage = true
                     }
                 } else {
                     if completedStep < 6 {
                         showSignup.toggle()
                     } else {
-                        showHome.toggle()
+                        showMainPage = true
                     }
                 }
             } else {
@@ -186,4 +185,3 @@ struct ContentView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
