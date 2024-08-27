@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>165887953343-lj504e8t83uasmjneuf1bufj7p8irava.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.165887953343-lj504e8t83uasmjneuf1bufj7p8irava</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA6fWTQMCr0QoeMxTblHrhKyxwHGAn-QuE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>165887953343</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>SteinhauerJan.fundingSuccess</string>
+	<key>PROJECT_ID</key>
+	<string>studentevaluation-9d972</string>
+	<key>STORAGE_BUCKET</key>
+	<string>studentevaluation-9d972.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:165887953343:ios:f408a7a0fdf162a895b90a</string>
+	<key>DATABASE_URL</key>
+	<string>https://studentevaluation-9d972-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
