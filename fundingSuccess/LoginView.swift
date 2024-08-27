@@ -106,11 +106,15 @@ struct LoginView: View {
                 .navigationDestination(isPresented: $showMainPage) {
                                     MainPageView()
                                 }
+                .navigationDestination(isPresented: $showSignup){
+                    SignUpview()
+                }
             }
 //            .navigate(to: ForgotPasswordView(), when: $showForgotPassword)
 //            .navigate(to: SignupView(), when: $showSignup)
 //            .navigate(to: HomeView(), when: $showHome)
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func onLogin() {

@@ -34,6 +34,8 @@
 		EBCC3B382C7E17EC002D70C5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EBCC3B372C7E17EC002D70C5 /* FirebaseStorage */; };
 		EBCC3B3C2C7E1A74002D70C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3B2C7E1A74002D70C5 /* LoginView.swift */; };
 		EBCC3B3E2C7E1F06002D70C5 /* MainPagevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */; };
+		EBCC3B402C7E2301002D70C5 /* SignUpview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3F2C7E2301002D70C5 /* SignUpview.swift */; };
+		EBCC3B442C7E2D13002D70C5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		EBCC3B242C7E172D002D70C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBCC3B3B2C7E1A74002D70C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagevView.swift; sourceTree = "<group>"; };
+		EBCC3B3F2C7E2301002D70C5 /* SignUpview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpview.swift; sourceTree = "<group>"; };
+		EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		EBCC3AD82C7E0837002D70C5 = {
 			isa = PBXGroup;
 			children = (
+				EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */,
 				EBCC3AE32C7E0837002D70C5 /* fundingSuccess */,
 				EBCC3AFA2C7E0839002D70C5 /* fundingSuccessTests */,
 				EBCC3B042C7E0839002D70C5 /* fundingSuccessUITests */,
@@ -135,6 +140,7 @@
 		EBCC3AE32C7E0837002D70C5 /* fundingSuccess */ = {
 			isa = PBXGroup;
 			children = (
+				EBCC3B3F2C7E2301002D70C5 /* SignUpview.swift */,
 				EBCC3B182C7E0D5D002D70C5 /* FundingSuccessLogo.svg */,
 				EBCC3B1E2C7E1000002D70C5 /* FundingSuccess.PNG */,
 				EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */,
@@ -328,9 +334,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCC3B402C7E2301002D70C5 /* SignUpview.swift in Sources */,
 				EBCC3B212C7E10C8002D70C5 /* FundingSuccessLogoSVGView.swift in Sources */,
 				EBCC3AEA2C7E0838002D70C5 /* fundingSuccess.xcdatamodeld in Sources */,
 				EBCC3B232C7E120A002D70C5 /* Color.swift in Sources */,
+				EBCC3B442C7E2D13002D70C5 /* ImagePickerView.swift in Sources */,
 				EBCC3AE52C7E0837002D70C5 /* fundingSuccessApp.swift in Sources */,
 				EBCC3B152C7E0B93002D70C5 /* LandingPageView.swift in Sources */,
 				EBCC3AEC2C7E0838002D70C5 /* ContentView.swift in Sources */,
