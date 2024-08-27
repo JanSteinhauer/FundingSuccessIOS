@@ -6,45 +6,42 @@ struct LandingPageView: View {
     private var items: FetchedResults<Item>
     
     var body: some View {
-        VStack {
-            FundingSuccessLogoSVGView()
-            
-            VStack(spacing: 20) {
-                // First Text block
-                Text("Donor")
-                    .foregroundColor(deepBlue)
-                    .font(.title2)
-                + Text(", support and invest in students who have consistently demonstrated exceptional talent and expertise in their respective disciplines.")
-                    .foregroundColor(mutedBlue)
-                    .font(.title2)
-                   
+        NavigationStack {
+            VStack {
+                FundingSuccessLogoSVGView()
                 
-                
-                // Second Text block
-                Text("Students")
-                    .foregroundColor(deepBlue)
-                    .font(.title2)
-                + Text(", access funds available to pay your student loans by showing and demonstrating your success.")
-                    .foregroundColor(mutedBlue)
-                    .font(.title2)
-                   
-                
-                // Start Now Button
-                Button(action: {
-                    // Navigate to login view or other action
-                }) {
-                    Text("Start Now")
+                VStack(spacing: 20) {
+                    // First Text block
+                    Text("Donor")
+                        .foregroundColor(deepBlue)
                         .font(.title2)
-                        .padding()
-                        .background(darkBlue)
-                        .foregroundColor(.white)
-                        .cornerRadius(5)
+                    + Text(", support and invest in students who have consistently demonstrated exceptional talent and expertise in their respective disciplines.")
+                        .foregroundColor(mutedBlue)
+                        .font(.title2)
+                    
+                    // Second Text block
+                    Text("Students")
+                        .foregroundColor(deepBlue)
+                        .font(.title2)
+                    + Text(", access funds available to pay your student loans by showing and demonstrating your success.")
+                        .foregroundColor(mutedBlue)
+                        .font(.title2)
+                    
+                    // Start Now Button
+                    NavigationLink(destination: LoginView()) {
+                        Text("Start Now")
+                            .font(.title2)
+                            .padding()
+                            .background(darkBlue)
+                            .foregroundColor(.white)
+                            .cornerRadius(5)
+                    }
                 }
+                .padding()
             }
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.white)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
     }
 }
 
