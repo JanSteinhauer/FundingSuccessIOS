@@ -13,6 +13,7 @@
 		EB2A1C3D2C80B2CA00BE227E /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C3C2C80B2CA00BE227E /* PersonalView.swift */; };
 		EB2A1C3F2C80B2FE00BE227E /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */; };
 		EB2A1C412C80B45800BE227E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C402C80B45800BE227E /* HeaderView.swift */; };
+		EB2A1C432C80C21C00BE227E /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C422C80C21C00BE227E /* ExperienceView.swift */; };
 		EBCC3AE52C7E0837002D70C5 /* fundingSuccessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */; };
 		EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE62C7E0837002D70C5 /* Persistence.swift */; };
 		EBCC3AEA2C7E0838002D70C5 /* fundingSuccess.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE82C7E0837002D70C5 /* fundingSuccess.xcdatamodeld */; };
@@ -68,6 +69,7 @@
 		EB2A1C3C2C80B2CA00BE227E /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
 		EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
 		EB2A1C402C80B45800BE227E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		EB2A1C422C80C21C00BE227E /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
 		EBCC3AE12C7E0837002D70C5 /* fundingSuccess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fundingSuccess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fundingSuccessApp.swift; sourceTree = "<group>"; };
 		EBCC3AE62C7E0837002D70C5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				EB2A1C3C2C80B2CA00BE227E /* PersonalView.swift */,
 				EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */,
 				EB2A1C402C80B45800BE227E /* HeaderView.swift */,
+				EB2A1C422C80C21C00BE227E /* ExperienceView.swift */,
 			);
 			path = fundingSuccess;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				EBCC3AEC2C7E0838002D70C5 /* ContentView.swift in Sources */,
 				EBCC3B3C2C7E1A74002D70C5 /* LoginView.swift in Sources */,
 				EB2A1C372C80B25400BE227E /* SignupInformationView.swift in Sources */,
+				EB2A1C432C80C21C00BE227E /* ExperienceView.swift in Sources */,
 				EB2A1C392C80B27100BE227E /* ProgressBar.swift in Sources */,
 				EB2A1C3D2C80B2CA00BE227E /* PersonalView.swift in Sources */,
 				EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */,

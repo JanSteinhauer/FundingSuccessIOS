@@ -22,8 +22,8 @@ struct StepContentView: View {
             switch step {
             case 0:
                 PersonalView(entries: $personalEntries)
-//            case 1:
-//                ExperienceView(entries: $experienceEntries)
+            case 1:
+                ExperienceView(experienceEntries: $experienceEntries)
 //            case 2:
 //                LoanView(entries: $loanEntries)
 //            case 3:
@@ -41,12 +41,21 @@ struct StepContentView: View {
     }
 }
 
+struct PersonalEntry {
+    var name: String = ""
+    var email: String = ""
+    var phone: String = ""
+    var gender: String = ""
+    var dateOfBirth: String = ""
+}
+
 struct ExperienceEntry {
     var jobTitle: String = ""
     var company: String = ""
     var location: String = ""
     var startDate: String = ""
     var endDate: String = ""
+    var linkedin: String = ""
 }
 
 struct LoanEntry {

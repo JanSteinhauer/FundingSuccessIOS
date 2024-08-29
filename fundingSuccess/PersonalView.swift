@@ -66,11 +66,4 @@ struct PersonalView: View {
 }
 
 
-struct PersonalEntry {
-    var name: String = ""
-    var email: String = ""
-    var phone: String = ""
-    var gender: String = ""
-    var dateOfBirth: String = ""
-}
 
