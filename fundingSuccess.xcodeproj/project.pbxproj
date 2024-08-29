@@ -14,6 +14,7 @@
 		EB2A1C3F2C80B2FE00BE227E /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */; };
 		EB2A1C412C80B45800BE227E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C402C80B45800BE227E /* HeaderView.swift */; };
 		EB2A1C432C80C21C00BE227E /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C422C80C21C00BE227E /* ExperienceView.swift */; };
+		EB2A1C452C80DB4200BE227E /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C442C80DB4200BE227E /* LoanView.swift */; };
 		EBCC3AE52C7E0837002D70C5 /* fundingSuccessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */; };
 		EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE62C7E0837002D70C5 /* Persistence.swift */; };
 		EBCC3AEA2C7E0838002D70C5 /* fundingSuccess.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE82C7E0837002D70C5 /* fundingSuccess.xcdatamodeld */; };
@@ -70,6 +71,7 @@
 		EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
 		EB2A1C402C80B45800BE227E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		EB2A1C422C80C21C00BE227E /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
+		EB2A1C442C80DB4200BE227E /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		EBCC3AE12C7E0837002D70C5 /* fundingSuccess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fundingSuccess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fundingSuccessApp.swift; sourceTree = "<group>"; };
 		EBCC3AE62C7E0837002D70C5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				EB2A1C3A2C80B29800BE227E /* StepContentView.swift */,
 				EB2A1C3C2C80B2CA00BE227E /* PersonalView.swift */,
 				EB2A1C422C80C21C00BE227E /* ExperienceView.swift */,
+				EB2A1C442C80DB4200BE227E /* LoanView.swift */,
 				EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */,
 				EB2A1C402C80B45800BE227E /* HeaderView.swift */,
 			);
@@ -357,6 +360,7 @@
 			files = (
 				EB2A1C3B2C80B29800BE227E /* StepContentView.swift in Sources */,
 				EBCC3B402C7E2301002D70C5 /* SignUpview.swift in Sources */,
+				EB2A1C452C80DB4200BE227E /* LoanView.swift in Sources */,
 				EBCC3B212C7E10C8002D70C5 /* FundingSuccessLogoSVGView.swift in Sources */,
 				EBCC3AEA2C7E0838002D70C5 /* fundingSuccess.xcdatamodeld in Sources */,
 				EBCC3B232C7E120A002D70C5 /* Color.swift in Sources */,

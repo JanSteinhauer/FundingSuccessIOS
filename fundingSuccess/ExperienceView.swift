@@ -124,7 +124,7 @@ struct ExperienceView: View {
                         .foregroundColor(fsblue)
                         .font(.headline)
                     
-                    TextField("LinkedIn URL", text: $experienceEntries.linkedin)
+                    TextField("LinkedIn URL", text: $linkedInURL)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(4)

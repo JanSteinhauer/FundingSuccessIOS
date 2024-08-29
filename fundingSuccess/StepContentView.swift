@@ -24,8 +24,8 @@ struct StepContentView: View {
                 PersonalView(entries: $personalEntries)
             case 1:
                 ExperienceView(experienceEntries: $experienceEntries)
-//            case 2:
-//                LoanView(entries: $loanEntries)
+            case 2:
+                LoanView(loanEntries: $loanEntries)
 //            case 3:
 //                InterestsView(selectedInterests: $selectedInterests)
 //            case 4:
@@ -59,7 +59,7 @@ struct ExperienceEntry {
 }
 
 struct LoanEntry {
-    var successfulAccomplishmentCategories: String = ""
+    var successfulAccomplishmentCategories: [String] = []
     var studentLoanDueDate: String = ""
     var studentTotalLoanAmount: String = ""
 }
