@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExperienceView: View {
     @Binding var experienceEntries: [ExperienceEntry]
+    @State private var linkedInURL: String = ""
     let fsblue = Color(hex: "#003366") // Replace with your custom color if necessary
     
     var body: some View {
@@ -65,21 +66,37 @@ struct ExperienceView: View {
                             .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
                         
                         // Start Date and End Date
-                        HStack {
-                            TextField("Start Date (DD/MM/YYYY)", text: $experienceEntries[index].startDate)
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(4)
-                                .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
-                            
-                            TextField("End Date (DD/MM/YYYY)", text: $experienceEntries[index].endDate)
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(4)
-                                .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
-                        }
+                        DatePicker("Start Date", selection: Binding(
+                            get: {
+                                experienceEntries[index].startDate.isEmpty ? Date() : DateFormatter().date(from: experienceEntries[index].startDate) ?? Date()
+                            },
+                            set: { newDate in
+                                experienceEntries[index].startDate = DateFormatter().string(from: newDate)
+                            }
+                        ), displayedComponents: .date)
+                        .datePickerStyle(CompactDatePickerStyle())
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
+                        
+                        DatePicker("End Date", selection: Binding(
+                            get: {
+                                experienceEntries[index].endDate.isEmpty ? Date() : DateFormatter().date(from: experienceEntries[index].endDate) ?? Date()
+                            },
+                            set: { newDate in
+                                experienceEntries[index].endDate = DateFormatter().string(from: newDate)
+                            }
+                        ), displayedComponents: .date)
+                        .datePickerStyle(CompactDatePickerStyle())
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
+                        
                     }
                     .padding(.vertical)
+                    
                 }
                 
                 // Add More Button
@@ -98,6 +115,22 @@ struct ExperienceView: View {
                     .cornerRadius(4)
                 }
                 .buttonStyle(PlainButtonStyle())
+            }
+            
+            // LinkedIn URL Field
+            Section {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("LinkedIn Profile")
+                        .foregroundColor(fsblue)
+                        .font(.headline)
+                    
+                    TextField("LinkedIn URL", text: $experienceEntries.linkedin)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
+                }
+                .padding(.vertical)
             }
         }
         .scrollContentBackground(.hidden)

@@ -32,7 +32,7 @@ struct fundingSuccessApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LandingPageView()
+            SignupInformationView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

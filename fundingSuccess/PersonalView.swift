@@ -15,21 +15,29 @@ struct PersonalView: View {
         Form {
             ForEach(entries.indices, id: \.self) { index in
                 Section(header: HStack {
-                    Spacer()
+                   
                     Text("Personal Information")
                         .foregroundColor(fsblue)
-                        .font(.title2) // Set the font size to be larger
-                        .fontWeight(.bold) // Make the font bold
+                        .font(.title2)
+                        .fontWeight(.bold)
                         .padding()
-                        .lineLimit(1) // Ensure text is limited to one line
-                        .frame(maxWidth: .infinity) // Allow the text to take up the full width
-                        .minimumScaleFactor(0.5) // Scale down the text if necessary to fit on one line
+                        .lineLimit(1)
+                        .frame(maxWidth: .infinity)
+                        .minimumScaleFactor(0.5)
                     Spacer()
                 }) {
                     TextField("Name", text: $entries[index].name)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
                     
                     // Phone number TextField restricted to numbers
                     TextField("Phone", text: $entries[index].phone)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
                         .keyboardType(.numberPad) // Only show number pad
                         .onChange(of: entries[index].phone) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
@@ -39,6 +47,10 @@ struct PersonalView: View {
                         }
                     
                     TextField("Email", text: $entries[index].email)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
                     
                     Picker("Gender", selection: $entries[index].gender) {
                         Text("Male").tag("Male")
@@ -46,6 +58,10 @@ struct PersonalView: View {
                         Text("Non Binary").tag("Non Binary")
                         Text("Other").tag("Other")
                     }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(4)
+                    .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
                     
                     // Date of Birth with DatePicker
                     DatePicker("Date of Birth", selection: Binding(
@@ -57,6 +73,10 @@ struct PersonalView: View {
                         }
                     ), displayedComponents: .date)
                     .datePickerStyle(CompactDatePickerStyle())
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(4)
+                    .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
                 }
             }
         }

@@ -175,9 +175,9 @@
 				EB2A1C382C80B27100BE227E /* ProgressBar.swift */,
 				EB2A1C3A2C80B29800BE227E /* StepContentView.swift */,
 				EB2A1C3C2C80B2CA00BE227E /* PersonalView.swift */,
+				EB2A1C422C80C21C00BE227E /* ExperienceView.swift */,
 				EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */,
 				EB2A1C402C80B45800BE227E /* HeaderView.swift */,
-				EB2A1C422C80C21C00BE227E /* ExperienceView.swift */,
 			);
 			path = fundingSuccess;
 			sourceTree = "<group>";
