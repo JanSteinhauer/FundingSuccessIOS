@@ -34,7 +34,10 @@ extension Color {
 }
 
 // Color definitions
-let darkBlue = Color(hex: "#003366") // Dark Blue
+let darkBlue = Color(hex: "#003365") // Dark Blue
+let darkerBlue = Color(hex: "#002244")
+let fsblue = Color(hex: "#003365") // Dark Blue
+
 let mutedBlue = Color(hex: "#577483") // Muted Blue
 let burntOrange = Color(hex: "#B55232") // Burnt Orange
 let deepBlue = Color(hex: "#03377e") // Deep Blue
