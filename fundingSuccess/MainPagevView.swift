@@ -29,6 +29,7 @@ struct MainPageView: View {
                 updateUserStreak(uid: user.uid)
             }
         }
+        .navigationBarBackButtonHidden(true) 
     }
     
     func fetchUserData() {
