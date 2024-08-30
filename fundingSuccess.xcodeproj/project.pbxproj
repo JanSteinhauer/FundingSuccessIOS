@@ -46,6 +46,8 @@
 		EBCC3B442C7E2D13002D70C5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */; };
 		EBD973F82C8211B300A0959D /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD973F72C8211B300A0959D /* DeckView.swift */; };
 		EBD973FA2C82183D00A0959D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD973F92C82183D00A0959D /* User.swift */; };
+		EBD973FE2C8224CA00A0959D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD973FD2C8224CA00A0959D /* CardView.swift */; };
+		EBD974002C82250B00A0959D /* Tinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD973FF2C82250B00A0959D /* Tinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		EBD973F72C8211B300A0959D /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		EBD973F92C82183D00A0959D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EBD973FD2C8224CA00A0959D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		EBD973FF2C82250B00A0959D /* Tinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 				EB2A1C402C80B45800BE227E /* HeaderView.swift */,
 				EBD973F72C8211B300A0959D /* DeckView.swift */,
 				EBD973F92C82183D00A0959D /* User.swift */,
+				EBD973FD2C8224CA00A0959D /* CardView.swift */,
+				EBD973FF2C82250B00A0959D /* Tinder.swift */,
 			);
 			path = fundingSuccess;
 			sourceTree = "<group>";
@@ -383,7 +389,9 @@
 				EB2A1C3D2C80B2CA00BE227E /* PersonalView.swift in Sources */,
 				EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */,
 				EB2A1C3F2C80B2FE00BE227E /* ButtonContainerView.swift in Sources */,
+				EBD974002C82250B00A0959D /* Tinder.swift in Sources */,
 				EBCC3B3E2C7E1F06002D70C5 /* MainPagevView.swift in Sources */,
+				EBD973FE2C8224CA00A0959D /* CardView.swift in Sources */,
 				EBD973FA2C82183D00A0959D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -178,9 +178,10 @@ struct ContentViewMainpage: View {
                     .transition(.opacity.combined(with: .move(edge: .bottom))) // Combined transition
                     .animation(.easeInOut, value: selectedComponent) // Add animation
             case "swipe":
-                DeckView(userProfilePictureURL: userData["profilePictureURL"] as? String, isDonor: userData["isDonor"] as? Int ?? 0)
-                    .transition(.scale(scale: 0.5, anchor: .center)) // Scale transition with anchor
-                    .animation(.spring(), value: selectedComponent) // Add animation
+//                DeckView(userProfilePictureURL: userData["profilePictureURL"] as? String, isDonor: userData["isDonor"] as? Int ?? 0)
+//                    .transition(.scale(scale: 0.5, anchor: .center)) // Scale transition with anchor
+//                    .animation(.spring(), value: selectedComponent) // Add animation
+                Tinder()
             default:
                 Text("Loading...")
                     .transition(.opacity) // Fade transition

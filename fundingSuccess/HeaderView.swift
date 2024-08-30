@@ -18,6 +18,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .frame(width: 50, height: 50)
             
+            
             Spacer()
             
             Text(isDonor ? "Donor Signup" : "User Signup")
