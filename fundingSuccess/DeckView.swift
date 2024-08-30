@@ -1,14 +1,3 @@
-//
-//  DeckView.swift
-//  fundingSuccess
-//
-//  Created by Steinhauer, Jan on 8/30/24.
-//
-
-import SwiftUI
-import Firebase
-import FirebaseAuth
-import FirebaseFirestore
 import SwiftUI
 import Firebase
 import FirebaseAuth
@@ -51,37 +40,26 @@ struct DeckView: View {
                         )
                         .animation(.interpolatingSpring(stiffness: 180, damping: 100), value: dragState.translation)
                         .transition(removalTransition)
-                        .gesture(LongPressGesture(minimumDuration: 0.01)
-                            .sequenced(before: DragGesture())
-                            .updating($dragState, body: { value, state, _ in
-                                switch value {
-                                case .first(true):
-                                    state = .pressing
-                                case .second(true, let drag):
-                                    state = .dragging(translation: drag?.translation ?? .zero)
-                                default:
-                                    break
+                        .gesture(
+                            DragGesture()
+                                .updating($dragState) { value, state, _ in
+                                    state = .dragging(translation: value.translation)
                                 }
-                            })
-                            .onChanged { value in
-                                guard case .second(true, let drag?) = value else {
-                                    return
+                                .onChanged { value in
+                                    // Update the swipe direction based on the drag gesture
+                                    if value.translation.width < -dragThreshold {
+                                        removalTransition = .leadingBottom
+                                        swipeDirection = "left"
+                                    } else if value.translation.width > dragThreshold {
+                                        removalTransition = .trailingBottom
+                                        swipeDirection = "right"
+                                    }
                                 }
-                                if drag.translation.width < -dragThreshold {
-                                    removalTransition = .leadingBottom
+                                .onEnded { value in
+                                    if abs(value.translation.width) > dragThreshold {
+                                        moveCard(index: i)
+                                    }
                                 }
-                                if drag.translation.width > dragThreshold {
-                                    removalTransition = .trailingBottom
-                                }
-                            }
-                            .onEnded { value in
-                                guard case .second(true, let drag?) = value else {
-                                    return
-                                }
-                                if drag.translation.width < -dragThreshold || drag.translation.width > dragThreshold {
-                                    self.moveCard(index: i)
-                                }
-                            }
                         )
                 }
             }
@@ -267,7 +245,6 @@ enum DragState {
         }
     }
 }
-
 
 struct OverlayView: View {
     var selectedUser: User?
