@@ -291,14 +291,7 @@ struct ScholarshipFormView: View {
     }
 }
 
-struct DeckView: View {
-    var userProfilePictureURL: String?
-    var isDonor: Int
-    
-    var body: some View {
-        Text("Deck View")
-    }
-}
+
 
 struct MainPageView_Previews: PreviewProvider {
     static var previews: some View {

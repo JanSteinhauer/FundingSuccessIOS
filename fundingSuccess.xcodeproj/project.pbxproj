@@ -44,6 +44,8 @@
 		EBCC3B3E2C7E1F06002D70C5 /* MainPagevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */; };
 		EBCC3B402C7E2301002D70C5 /* SignUpview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B3F2C7E2301002D70C5 /* SignUpview.swift */; };
 		EBCC3B442C7E2D13002D70C5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */; };
+		EBD973F82C8211B300A0959D /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD973F72C8211B300A0959D /* DeckView.swift */; };
+		EBD973FA2C82183D00A0959D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD973F92C82183D00A0959D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		EBCC3B3D2C7E1F06002D70C5 /* MainPagevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagevView.swift; sourceTree = "<group>"; };
 		EBCC3B3F2C7E2301002D70C5 /* SignUpview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpview.swift; sourceTree = "<group>"; };
 		EBCC3B432C7E2D13002D70C5 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		EBD973F72C8211B300A0959D /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		EBD973F92C82183D00A0959D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 				EB2A1C442C80DB4200BE227E /* LoanView.swift */,
 				EB2A1C3E2C80B2FE00BE227E /* ButtonContainerView.swift */,
 				EB2A1C402C80B45800BE227E /* HeaderView.swift */,
+				EBD973F72C8211B300A0959D /* DeckView.swift */,
+				EBD973F92C82183D00A0959D /* User.swift */,
 			);
 			path = fundingSuccess;
 			sourceTree = "<group>";
@@ -373,10 +379,12 @@
 				EB2A1C372C80B25400BE227E /* SignupInformationView.swift in Sources */,
 				EB2A1C432C80C21C00BE227E /* ExperienceView.swift in Sources */,
 				EB2A1C392C80B27100BE227E /* ProgressBar.swift in Sources */,
+				EBD973F82C8211B300A0959D /* DeckView.swift in Sources */,
 				EB2A1C3D2C80B2CA00BE227E /* PersonalView.swift in Sources */,
 				EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */,
 				EB2A1C3F2C80B2FE00BE227E /* ButtonContainerView.swift in Sources */,
 				EBCC3B3E2C7E1F06002D70C5 /* MainPagevView.swift in Sources */,
+				EBD973FA2C82183D00A0959D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

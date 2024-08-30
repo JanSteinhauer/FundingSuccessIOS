@@ -12,7 +12,7 @@ struct SignUpview: View {
     @State private var agreeToTerms: Bool = false
     @State private var profilePicture: UIImage? = nil
     @State private var loading: Bool = false
-    @State private var currentUser: User? = nil
+    @State private var firebaseUser: FirebaseAuth.User? = nil // Change here
     @State private var showSignUpInformation: Bool = false
     @State private var showingImagePicker = false
 
@@ -80,8 +80,6 @@ struct SignUpview: View {
                             .padding(.top)
                     }
                     
-                
-                    
                     Button(action: goToSignIn) {
                         Text("Have an account? Sign In")
                             .foregroundColor(darkBlue)
@@ -90,7 +88,6 @@ struct SignUpview: View {
                     .navigationDestination(isPresented: $showSignUpInformation) {
                         LoginView()
                     }
-
                 }
                 .padding(.bottom)
                 
@@ -105,15 +102,15 @@ struct SignUpview: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white.edgesIgnoringSafeArea(.all)) // Set background color and make it cover the entire screen
+        .background(Color.white.edgesIgnoringSafeArea(.all))
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: setupUser)
-        .navigationBarBackButtonHidden(true) 
+        .navigationBarBackButtonHidden(true)
     }
     
     private func setupUser() {
         if let user = Auth.auth().currentUser {
-            currentUser = user
+            firebaseUser = user
             email = user.email ?? ""
         } else {
             print("No user is currently signed in")
@@ -211,11 +208,11 @@ struct SignUpview: View {
     }
     
     private func showError(_ message: String) {
-        // Implement your own error handling or UI for errors.
         print("Error: \(message)")
         loading = false
     }
 }
+
 
 struct ProfilePictureInputView: View {
     @Binding var profilePicture: UIImage?
