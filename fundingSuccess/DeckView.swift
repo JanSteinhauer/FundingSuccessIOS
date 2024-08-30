@@ -9,6 +9,10 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import SwiftUI
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 struct DeckView: View {
     
@@ -32,52 +36,54 @@ struct DeckView: View {
     var body: some View {
         ZStack {
             ForEach(0..<dataLength, id: \.self) { i in
-                DeckItemView(index: i, isDonor: isDonor, userData: users, scholarshipData: scholarshipData, swipeDirection: $swipeDirection, onSwipe: handleSwipe, onClick: handleClick)
-                    .zIndex(isTopCard(index: i) ? 1 : 0)
-                    .offset(
-                        x: isTopCard(index: i) ? dragState.translation.width : 0,
-                        y: isTopCard(index: i) ? dragState.translation.height : 0
-                    )
-                    .scaleEffect(
-                        dragState.isDragging && isTopCard(index: i) ? 0.95 : 1.0
-                    )
-                    .rotationEffect(
-                        Angle(degrees: isTopCard(index: i) ? Double(dragState.translation.width / 10) : 0)
-                    )
-                    .animation(.interpolatingSpring(stiffness: 180, damping: 100), value: dragState.translation)
-                    .transition(removalTransition)
-                    .gesture(LongPressGesture(minimumDuration: 0.01)
-                        .sequenced(before: DragGesture())
-                        .updating($dragState, body: { value, state, _ in
-                            switch value {
-                            case .first(true):
-                                state = .pressing
-                            case .second(true, let drag):
-                                state = .dragging(translation: drag?.translation ?? .zero)
-                            default:
-                                break
+                if !gone.contains(i) {
+                    DeckItemView(index: i, isDonor: isDonor, userData: users, scholarshipData: scholarshipData, swipeDirection: $swipeDirection, onSwipe: handleSwipe, onClick: handleClick)
+                        .zIndex(isTopCard(index: i) ? 1 : 0)
+                        .offset(
+                            x: isTopCard(index: i) ? dragState.translation.width : 0,
+                            y: isTopCard(index: i) ? dragState.translation.height : 0
+                        )
+                        .scaleEffect(
+                            dragState.isDragging && isTopCard(index: i) ? 0.95 : 1.0
+                        )
+                        .rotationEffect(
+                            Angle(degrees: isTopCard(index: i) ? Double(dragState.translation.width / 10) : 0)
+                        )
+                        .animation(.interpolatingSpring(stiffness: 180, damping: 100), value: dragState.translation)
+                        .transition(removalTransition)
+                        .gesture(LongPressGesture(minimumDuration: 0.01)
+                            .sequenced(before: DragGesture())
+                            .updating($dragState, body: { value, state, _ in
+                                switch value {
+                                case .first(true):
+                                    state = .pressing
+                                case .second(true, let drag):
+                                    state = .dragging(translation: drag?.translation ?? .zero)
+                                default:
+                                    break
+                                }
+                            })
+                            .onChanged { value in
+                                guard case .second(true, let drag?) = value else {
+                                    return
+                                }
+                                if drag.translation.width < -dragThreshold {
+                                    removalTransition = .leadingBottom
+                                }
+                                if drag.translation.width > dragThreshold {
+                                    removalTransition = .trailingBottom
+                                }
                             }
-                        })
-                        .onChanged { value in
-                            guard case .second(true, let drag?) = value else {
-                                return
+                            .onEnded { value in
+                                guard case .second(true, let drag?) = value else {
+                                    return
+                                }
+                                if drag.translation.width < -dragThreshold || drag.translation.width > dragThreshold {
+                                    self.moveCard(index: i)
+                                }
                             }
-                            if drag.translation.width < -dragThreshold {
-                                removalTransition = .leadingBottom
-                            }
-                            if drag.translation.width > dragThreshold {
-                                removalTransition = .trailingBottom
-                            }
-                        }
-                        .onEnded { value in
-                            guard case .second(true, let drag?) = value else {
-                                return
-                            }
-                            if drag.translation.width < -dragThreshold || drag.translation.width > dragThreshold {
-                                self.moveCard(index: i)
-                            }
-                        }
-                    )
+                        )
+                }
             }
             if overlayShown {
                 OverlayView(selectedUser: selectedUser, selectedScholarship: selectedScholarship, closeOverlay: closeOverlay)
@@ -154,16 +160,11 @@ struct DeckView: View {
     }
     
     private func isTopCard(index: Int) -> Bool {
-        return index == 0
+        return index == users.indices.last || index == scholarshipData.indices.last
     }
 
     private func moveCard(index: Int) {
         gone.insert(index)
-        if isDonor == 1 {
-            users.remove(at: index)
-        } else {
-            scholarshipData.remove(at: index)
-        }
     }
 }
 
@@ -266,8 +267,6 @@ enum DragState {
         }
     }
 }
-
-
 
 
 struct OverlayView: View {
