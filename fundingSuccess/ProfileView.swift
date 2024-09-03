@@ -69,17 +69,20 @@ struct ProfileView: View {
                     
                     if userData["isDonor"] as? Int == 1 {
                         SectionToggleView(showSection: $showUniversities, title: "University Preferences")
+                            .foregroundColor(fsblue)
                         if showUniversities {
                             UniversityListView(universities: $education)
                         }
                         
                         SectionToggleView(showSection: $showDonorsLoan, title: "Loan Preferences")
+                            .foregroundColor(fsblue)
                         if showDonorsLoan {
                             DonorLoanListView(loans: $loans)
                         }
                     }
                     
                     SectionToggleView(showSection: $showInterests, title: "Interests")
+                        .foregroundColor(fsblue)
                     if showInterests {
                         InterestListView(interests: $interests)
                     }
@@ -91,7 +94,7 @@ struct ProfileView: View {
                     Text("Update Profile")
                         .bold()
                         .padding()
-                        .background(Color.blue)
+                        .background(fsblue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
@@ -195,7 +198,7 @@ struct ProfileImageView: View {
             }
             Button("Change Profile Picture") {
                 // Implement image picker
-            }
+            }.foregroundColor(fsblue)
         }
         .padding(.bottom, 20)
     }
