@@ -102,7 +102,7 @@ struct Tinder: View {
                     dragState.translation.width < -dragThreshold && isTopCard(cardView: view) ? 1.0 : 0
                 )
 
-            Image(systemName: "heart.circle")
+            Image(systemName: "checkmark.circle")
                 .foregroundStyle(Color.white)
                 .font(.system(size: 100))
                 .opacity(
