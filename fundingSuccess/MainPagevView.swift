@@ -263,14 +263,14 @@ struct BeaverLogoBlinkAnimationView: View {
             .frame(width: 50, height: 50)
     }
 }
-
-struct ProfileView: View {
-    var userData: [String: Any]
-    
-    var body: some View {
-        Text("Profile View")
-    }
-}
+//
+//struct ProfileView: View {
+//    var userData: [String: Any]
+//    
+//    var body: some View {
+//        Text("Profile View")
+//    }
+//}
 
 struct ChatView: View {
     var body: some View {
