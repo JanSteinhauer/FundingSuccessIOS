@@ -24,6 +24,7 @@
 		EB641EC62C88C873009D354A /* EditableInterestsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC52C88C873009D354A /* EditableInterestsListView.swift */; };
 		EB641EC82C88C8A0009D354A /* EditableProjectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC72C88C8A0009D354A /* EditableProjectsListView.swift */; };
 		EB641ECA2C88D2A8009D354A /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC92C88D2A8009D354A /* CategoryPickerView.swift */; };
+		EB641ECC2C88D75E009D354A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641ECB2C88D75D009D354A /* ImagePicker.swift */; };
 		EB654EBE2C87D5A10066D221 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB654EBD2C87D5A10066D221 /* ProfileView.swift */; };
 		EBCC3AE52C7E0837002D70C5 /* fundingSuccessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */; };
 		EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE62C7E0837002D70C5 /* Persistence.swift */; };
@@ -95,6 +96,7 @@
 		EB641EC52C88C873009D354A /* EditableInterestsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableInterestsListView.swift; sourceTree = "<group>"; };
 		EB641EC72C88C8A0009D354A /* EditableProjectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableProjectsListView.swift; sourceTree = "<group>"; };
 		EB641EC92C88D2A8009D354A /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
+		EB641ECB2C88D75D009D354A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EB654EBD2C87D5A10066D221 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EBCC3AE12C7E0837002D70C5 /* fundingSuccess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fundingSuccess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fundingSuccessApp.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				EB641EBA2C88C774009D354A /* InputFieldView.swift */,
 				EB641EB82C88C751009D354A /* SelectionToggleView.swift */,
 				EB641EC92C88D2A8009D354A /* CategoryPickerView.swift */,
+				EB641ECB2C88D75D009D354A /* ImagePicker.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				EB2A1C3B2C80B29800BE227E /* StepContentView.swift in Sources */,
 				EB641EBE2C88C7D2009D354A /* EditableExperienceListView.swift in Sources */,
 				EBCC3B402C7E2301002D70C5 /* SignUpview.swift in Sources */,
+				EB641ECC2C88D75E009D354A /* ImagePicker.swift in Sources */,
 				EB2A1C452C80DB4200BE227E /* LoanView.swift in Sources */,
 				EB641EC22C88C81F009D354A /* EditableUniversityPreferencesListView.swift in Sources */,
 				EBCC3B212C7E10C8002D70C5 /* FundingSuccessLogoSVGView.swift in Sources */,
