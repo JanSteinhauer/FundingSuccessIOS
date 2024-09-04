@@ -42,7 +42,7 @@ struct User: Identifiable, Codable {
     
     var rightSwipes: [String]?
     var score: Int?
-    var signUpStepCompleted: Int?
+    var sign_up_step_completed: Int?
 }
 
 // Supporting Structures

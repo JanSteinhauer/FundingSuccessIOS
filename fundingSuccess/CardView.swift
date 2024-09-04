@@ -9,9 +9,8 @@ import SwiftUI
 
 struct CardView: View, Identifiable {
     let id = UUID()
-    let image: String
-    let title: String
-    
+    let user: User // Pass the full User object
+
     @State private var loadedImage: UIImage? = nil
     
     var body: some View {
@@ -37,17 +36,31 @@ struct CardView: View, Identifiable {
             }
         }
         .onAppear {
-            loadImageAsync(from: image)
+            loadImageAsync(from: user.profilePictureURL)
         }
         .overlay(alignment: .bottom) {
             VStack {
-                Text(title)
+                Text(user.name)
                     .font(.system(.headline, design: .rounded))
                     .fontWeight(.bold)
                     .padding(.horizontal, 30)
                     .padding(.vertical, 10)
                     .background(Color.white)
                     .cornerRadius(5)
+                
+                // Button to print user info
+                Button(action: {
+                    printUserInfo()
+                }) {
+                    Text("Show Info")
+                        .font(.system(.subheadline, design: .rounded))
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(5)
+                }
+                .padding(.top, 10)
             }
             .padding([.bottom], 20)
         }
@@ -66,8 +79,13 @@ struct CardView: View, Identifiable {
             }
         }.resume()
     }
+
+    // Function to print all user details
+    func printUserInfo() {
+        print("User Info: \(user)")
+    }
 }
 
 #Preview {
-    CardView(image: "https://firebasestorage.googleapis.com/v0/b/studentevaluation-9d972.appspot.com/o/profilePictures%2F3ekNmd1KN9g6TmW754cngrJqevA3?alt=media&token=03991bd4-091a-4c27-954c-9aa45857c2d6", title: "Hong Kong")
+    CardView(user: User(name: "Jan Steinhauer", email: "jan@gmail.com", profilePictureURL: "https://example.com/jan.png", currentStreak: Optional(3), education: nil, educationData: nil, experience: nil, experienceData: nil, interests: nil, isDonor: nil, lastLoginDate: nil, loanData: nil, loans: nil, successfulAccomplishmentCategories: nil, matches: nil, mobile: nil, personalData: nil, projectData: nil, projects: nil, rightSwipes: nil, score: nil, sign_up_step_completed: nil))
 }

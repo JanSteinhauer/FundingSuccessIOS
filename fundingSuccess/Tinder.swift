@@ -125,7 +125,7 @@ struct Tinder: View {
         if lastIndex < users.count - 1 {
             lastIndex += 1
             let user = users[lastIndex]
-            let newCardView = CardView(image: user.profilePictureURL!, title: user.name)
+            let newCardView =  CardView(user: user)
             cardViews.append(newCardView)
         } else {
             // Optionally, handle the case where no more cards are available, e.g., show a message or reload the deck if desired.
@@ -167,10 +167,13 @@ struct Tinder: View {
     }
 
     private func updateCardViews() {
+        // Map over the users and create a CardView for each
         cardViews = users.prefix(2).map { user in
-            CardView(image: user.profilePictureURL!, title: user.name)
+            // Pass the entire User object to the CardView
+            CardView(user: user)
         }
     }
+
 }
 
 struct Students {
