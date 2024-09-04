@@ -7,9 +7,15 @@
 
 import SwiftUI
 
-
 struct EditableEducationListView: View {
     @Binding var education: [EducationEntry]
+    
+    // DateFormatter to format dates as dd/mm/yyyy
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter
+    }
     
     var body: some View {
         VStack(spacing: 20) {
@@ -32,6 +38,32 @@ struct EditableEducationListView: View {
                         set: { education[index].gpa = $0 }
                     ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    // DatePicker for Start Date
+                    DatePicker("Start Date", selection: Binding(
+                        get: {
+                            // Convert the string date to Date object
+                            dateFormatter.date(from: education[index].startDate) ?? Date()
+                        },
+                        set: { newDate in
+                            // Format the selected Date to string in dd/MM/yyyy format
+                            education[index].startDate = dateFormatter.string(from: newDate)
+                        }
+                    ), displayedComponents: .date)
+                    .datePickerStyle(CompactDatePickerStyle())
+
+                    // DatePicker for End Date
+                    DatePicker("End Date", selection: Binding(
+                        get: {
+                            // Convert the string date to Date object
+                            dateFormatter.date(from: education[index].endDate) ?? Date()
+                        },
+                        set: { newDate in
+                            // Format the selected Date to string in dd/MM/yyyy format
+                            education[index].endDate = dateFormatter.string(from: newDate)
+                        }
+                    ), displayedComponents: .date)
+                    .datePickerStyle(CompactDatePickerStyle())
 
                     Button(action: {
                         education.remove(at: index)
