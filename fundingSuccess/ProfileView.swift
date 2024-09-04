@@ -214,12 +214,13 @@ struct ProfileView: View {
     func mapToLoanEntries(_ data: [[String: Any]]) -> [LoanEntry] {
         return data.map { dict in
             LoanEntry(
-                successfulAccomplishmentCategories: dict["successfulAccomplishmentCategories"] as? [String] ?? [],
-                studentLoanDueDate: dict["studentLoanDueDate"] as? String ?? "",
-                studentTotalLoanAmount: dict["studentTotalLoanAmount"] as? String ?? ""
+                successfulAccomplishmentCategories: dict["successful_accomplishment_categories"] as? [String] ?? [],
+                studentLoanDueDate: dict["student_loan_due_date"] as? String ?? "",
+                studentTotalLoanAmount: dict["student_total_loan_amount"] as? String ?? ""
             )
         }
     }
+
     
     func mapToProjectEntries(_ data: [[String: Any]]) -> [ProjectEntry] {
         return data.map { dict in
