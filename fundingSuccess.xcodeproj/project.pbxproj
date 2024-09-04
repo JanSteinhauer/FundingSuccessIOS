@@ -15,6 +15,14 @@
 		EB2A1C412C80B45800BE227E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C402C80B45800BE227E /* HeaderView.swift */; };
 		EB2A1C432C80C21C00BE227E /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C422C80C21C00BE227E /* ExperienceView.swift */; };
 		EB2A1C452C80DB4200BE227E /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A1C442C80DB4200BE227E /* LoanView.swift */; };
+		EB641EB92C88C751009D354A /* SelectionToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EB82C88C751009D354A /* SelectionToggleView.swift */; };
+		EB641EBB2C88C774009D354A /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EBA2C88C774009D354A /* InputFieldView.swift */; };
+		EB641EBE2C88C7D2009D354A /* EditableExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EBD2C88C7D2009D354A /* EditableExperienceListView.swift */; };
+		EB641EC02C88C7F3009D354A /* EditableEducationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EBF2C88C7F3009D354A /* EditableEducationListView.swift */; };
+		EB641EC22C88C81F009D354A /* EditableUniversityPreferencesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC12C88C81F009D354A /* EditableUniversityPreferencesListView.swift */; };
+		EB641EC42C88C851009D354A /* EditableLoanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC32C88C851009D354A /* EditableLoanListView.swift */; };
+		EB641EC62C88C873009D354A /* EditableInterestsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC52C88C873009D354A /* EditableInterestsListView.swift */; };
+		EB641EC82C88C8A0009D354A /* EditableProjectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB641EC72C88C8A0009D354A /* EditableProjectsListView.swift */; };
 		EB654EBE2C87D5A10066D221 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB654EBD2C87D5A10066D221 /* ProfileView.swift */; };
 		EBCC3AE52C7E0837002D70C5 /* fundingSuccessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */; };
 		EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC3AE62C7E0837002D70C5 /* Persistence.swift */; };
@@ -77,6 +85,14 @@
 		EB2A1C402C80B45800BE227E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		EB2A1C422C80C21C00BE227E /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
 		EB2A1C442C80DB4200BE227E /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
+		EB641EB82C88C751009D354A /* SelectionToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionToggleView.swift; sourceTree = "<group>"; };
+		EB641EBA2C88C774009D354A /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		EB641EBD2C88C7D2009D354A /* EditableExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableExperienceListView.swift; sourceTree = "<group>"; };
+		EB641EBF2C88C7F3009D354A /* EditableEducationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableEducationListView.swift; sourceTree = "<group>"; };
+		EB641EC12C88C81F009D354A /* EditableUniversityPreferencesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableUniversityPreferencesListView.swift; sourceTree = "<group>"; };
+		EB641EC32C88C851009D354A /* EditableLoanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableLoanListView.swift; sourceTree = "<group>"; };
+		EB641EC52C88C873009D354A /* EditableInterestsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableInterestsListView.swift; sourceTree = "<group>"; };
+		EB641EC72C88C8A0009D354A /* EditableProjectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableProjectsListView.swift; sourceTree = "<group>"; };
 		EB654EBD2C87D5A10066D221 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EBCC3AE12C7E0837002D70C5 /* fundingSuccess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fundingSuccess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCC3AE42C7E0837002D70C5 /* fundingSuccessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fundingSuccessApp.swift; sourceTree = "<group>"; };
@@ -142,6 +158,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB641EB72C88C726009D354A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				EB641EBA2C88C774009D354A /* InputFieldView.swift */,
+				EB641EB82C88C751009D354A /* SelectionToggleView.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		EB641EBC2C88C7BA009D354A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EB641EBD2C88C7D2009D354A /* EditableExperienceListView.swift */,
+				EB641EBF2C88C7F3009D354A /* EditableEducationListView.swift */,
+				EB641EC12C88C81F009D354A /* EditableUniversityPreferencesListView.swift */,
+				EB641EC32C88C851009D354A /* EditableLoanListView.swift */,
+				EB641EC52C88C873009D354A /* EditableInterestsListView.swift */,
+				EB641EC72C88C8A0009D354A /* EditableProjectsListView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EBCC3AD82C7E0837002D70C5 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +204,8 @@
 		EBCC3AE32C7E0837002D70C5 /* fundingSuccess */ = {
 			isa = PBXGroup;
 			children = (
+				EB641EBC2C88C7BA009D354A /* Profile */,
+				EB641EB72C88C726009D354A /* utils */,
 				EBCC3B3F2C7E2301002D70C5 /* SignUpview.swift */,
 				EBCC3B182C7E0D5D002D70C5 /* FundingSuccessLogo.svg */,
 				EBCC3B1E2C7E1000002D70C5 /* FundingSuccess.PNG */,
@@ -374,21 +414,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB2A1C3B2C80B29800BE227E /* StepContentView.swift in Sources */,
+				EB641EBE2C88C7D2009D354A /* EditableExperienceListView.swift in Sources */,
 				EBCC3B402C7E2301002D70C5 /* SignUpview.swift in Sources */,
 				EB2A1C452C80DB4200BE227E /* LoanView.swift in Sources */,
+				EB641EC22C88C81F009D354A /* EditableUniversityPreferencesListView.swift in Sources */,
 				EBCC3B212C7E10C8002D70C5 /* FundingSuccessLogoSVGView.swift in Sources */,
+				EB641EC62C88C873009D354A /* EditableInterestsListView.swift in Sources */,
 				EBCC3AEA2C7E0838002D70C5 /* fundingSuccess.xcdatamodeld in Sources */,
 				EBCC3B232C7E120A002D70C5 /* Color.swift in Sources */,
+				EB641EC42C88C851009D354A /* EditableLoanListView.swift in Sources */,
 				EBCC3B442C7E2D13002D70C5 /* ImagePickerView.swift in Sources */,
 				EB2A1C412C80B45800BE227E /* HeaderView.swift in Sources */,
+				EB641EBB2C88C774009D354A /* InputFieldView.swift in Sources */,
 				EBCC3AE52C7E0837002D70C5 /* fundingSuccessApp.swift in Sources */,
 				EBCC3B152C7E0B93002D70C5 /* LandingPageView.swift in Sources */,
 				EBCC3AEC2C7E0838002D70C5 /* ContentView.swift in Sources */,
 				EBCC3B3C2C7E1A74002D70C5 /* LoginView.swift in Sources */,
+				EB641EB92C88C751009D354A /* SelectionToggleView.swift in Sources */,
 				EB2A1C372C80B25400BE227E /* SignupInformationView.swift in Sources */,
 				EB2A1C432C80C21C00BE227E /* ExperienceView.swift in Sources */,
+				EB641EC82C88C8A0009D354A /* EditableProjectsListView.swift in Sources */,
 				EB2A1C392C80B27100BE227E /* ProgressBar.swift in Sources */,
 				EBD973F82C8211B300A0959D /* DeckView.swift in Sources */,
+				EB641EC02C88C7F3009D354A /* EditableEducationListView.swift in Sources */,
 				EB654EBE2C87D5A10066D221 /* ProfileView.swift in Sources */,
 				EB2A1C3D2C80B2CA00BE227E /* PersonalView.swift in Sources */,
 				EBCC3AE72C7E0837002D70C5 /* Persistence.swift in Sources */,
