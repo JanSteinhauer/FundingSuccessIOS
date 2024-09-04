@@ -122,13 +122,17 @@ struct Tinder: View {
     private func moveCard() {
         cardViews.removeFirst()
 
-        lastIndex += 1
-        let user = users[lastIndex % users.count]
-
-        let newCardView = CardView(image: user.profilePictureURL!, title: user.name)
-
-        cardViews.append(newCardView)
+        if lastIndex < users.count - 1 {
+            lastIndex += 1
+            let user = users[lastIndex]
+            let newCardView = CardView(image: user.profilePictureURL!, title: user.name)
+            cardViews.append(newCardView)
+        } else {
+            // Optionally, handle the case where no more cards are available, e.g., show a message or reload the deck if desired.
+            print("No more users to display.")
+        }
     }
+
     
     func fetchData() {
         guard let user = Auth.auth().currentUser else {
