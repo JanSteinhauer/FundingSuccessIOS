@@ -10,8 +10,9 @@ import SwiftUI
 struct CardView: View, Identifiable {
     let id = UUID()
     let user: User // Pass the full User object
-
+    
     @State private var loadedImage: UIImage? = nil
+    @State private var showOverlay = false // State for showing the overlay
     
     var body: some View {
         ZStack {
@@ -48,22 +49,17 @@ struct CardView: View, Identifiable {
                     .background(Color.white)
                     .cornerRadius(5)
                 
-                // Button to print user info
-                Button(action: {
-                    printUserInfo()
-                }) {
-                    Text("Show Info")
-                        .font(.system(.subheadline, design: .rounded))
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(5)
-                }
-                .padding(.top, 10)
+              
             }
             .padding([.bottom], 20)
         }
+        
+        .onTapGesture {
+                 showOverlay.toggle() // Toggle overlay when the card is tapped
+             }
+             .fullScreenCover(isPresented: $showOverlay) {
+                 CardOverlayView(user: user) // Show overlay with user details
+             }
     }
     
     func loadImageAsync(from urlString: String?) {
@@ -78,11 +74,6 @@ struct CardView: View, Identifiable {
                 print("Failed to load image: \(error?.localizedDescription ?? "Unknown error")")
             }
         }.resume()
-    }
-
-    // Function to print all user details
-    func printUserInfo() {
-        print("User Info: \(user)")
     }
 }
 
