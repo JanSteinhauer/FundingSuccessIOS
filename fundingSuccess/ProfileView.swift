@@ -60,23 +60,23 @@ struct ProfileView: View {
                         
                         SectionToggleView(showSection: $showLoans, title: "Loans")
                             .foregroundColor(fsblue)
-//                        if showLoans {
-//                            EditableLoanListView(loans: $loans)
-//                        }
+                        if showLoans {
+                            EditableLoanListView(loans: $loans)
+                        }
                         
                         SectionToggleView(showSection: $showProjects, title: "Projects")
                             .foregroundColor(fsblue)
-//                        if showProjects {
-//                            EditableProjectListView(projects: $projects)
-//                        }
+                        if showProjects {
+                            EditableProjectsListView(projects: $projects)
+                        }
                     }
                     
                     if userData["isDonor"] as? Int == 1 {
                         SectionToggleView(showSection: $showUniversities, title: "University Preferences")
                             .foregroundColor(fsblue)
-//                        if showUniversities {
-//                            EditableUniversityListView(universities: $education)
-//                        }
+                        if showUniversities {
+                            EditableUniversityPreferencesListView(universities: $education)
+                        }
                         
                         SectionToggleView(showSection: $showDonorsLoan, title: "Loan Preferences")
                             .foregroundColor(fsblue)
@@ -87,9 +87,9 @@ struct ProfileView: View {
                     
                     SectionToggleView(showSection: $showInterests, title: "Interests")
                         .foregroundColor(fsblue)
-//                    if showInterests {
-//                        EditableInterestListView(interests: $interests)
-//                    }
+                    if showInterests {
+                        EditableInterestsListView(interests: $interests)
+                    }
                 }
                 
                 Button(action: {
@@ -278,92 +278,332 @@ extension ProjectEntry {
 }
 
 
-    struct EditableExperienceListView: View {
-        @Binding var experience: [ExperienceEntry]
-        
-        var body: some View {
-            VStack {
-                ForEach(experience.indices, id: \.self) { index in
-                    VStack(alignment: .leading) {
-                        TextField("Job Title", text: Binding(
-                            get: { experience[index].jobTitle },
-                            set: { experience[index].jobTitle = $0 }
-                        ))
-                        Button(action: {
-                            print("This is the experience", experience)
-                        }, label: {
-                            Text("Button")
-                        })
-                        TextField("Company", text: Binding(
-                            get: { experience[index].company },
-                            set: { experience[index].company = $0 }
-                        ))
-                        TextField("Location", text: Binding(
-                            get: { experience[index].location },
-                            set: { experience[index].location = $0 }
-                        ))
-                        // Add other fields as necessary
-                        Button(action: {
-                            experience.remove(at: index)
-                        }) {
-                            Text("Remove Experience")
-                                .foregroundColor(.red)
-                        }
-                    }
-                    .padding()
-                }
-                
-                Button(action: {
-                    experience.append(ExperienceEntry()) // Add a new empty experience entry
-                }) {
-                    Text("Add Experience")
-                        .foregroundColor(fsblue)
-                }
-                .padding(.top)
-            }
-        }
-    }
+struct EditableExperienceListView: View {
+    @Binding var experience: [ExperienceEntry]
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            ForEach(experience.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("Job Title", text: Binding(
+                        get: { experience[index].jobTitle },
+                        set: { experience[index].jobTitle = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
 
-    struct EditableEducationListView: View {
-        @Binding var education: [EducationEntry]
-        
-        var body: some View {
-            VStack {
-                ForEach(education.indices, id: \.self) { index in
-                    VStack(alignment: .leading) {
-                        TextField("University", text: Binding(
-                            get: { education[index].university },
-                            set: { education[index].university = $0 }
-                        ))
-                        TextField("Major", text: Binding(
-                            get: { education[index].major },
-                            set: { education[index].major = $0 }
-                        ))
-                        TextField("GPA", text: Binding(
-                            get: { education[index].gpa },
-                            set: { education[index].gpa = $0 }
-                        ))
-                        // Add other fields as necessary
-                        Button(action: {
-                            education.remove(at: index)
-                        }) {
-                            Text("Remove Education")
-                                .foregroundColor(.red)
-                        }
+                    TextField("Company", text: Binding(
+                        get: { experience[index].company },
+                        set: { experience[index].company = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("Location", text: Binding(
+                        get: { experience[index].location },
+                        set: { experience[index].location = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    Button(action: {
+                        experience.remove(at: index)
+                    }) {
+                        Text("Remove Experience")
+                            .foregroundColor(.red)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
                     }
-                    .padding()
                 }
-                
-                Button(action: {
-                    education.append(EducationEntry()) // Add a new empty education entry
-                }) {
-                    Text("Add Education")
-                        .foregroundColor(fsblue)
-                }
-                .padding(.top)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
             }
+            
+            Button(action: {
+                experience.append(ExperienceEntry()) // Add a new empty experience entry
+            }) {
+                Text("Add Experience")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(fsblue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
         }
     }
+}
+
+struct EditableEducationListView: View {
+    @Binding var education: [EducationEntry]
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            ForEach(education.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("University", text: Binding(
+                        get: { education[index].university },
+                        set: { education[index].university = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("Major", text: Binding(
+                        get: { education[index].major },
+                        set: { education[index].major = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("GPA", text: Binding(
+                        get: { education[index].gpa },
+                        set: { education[index].gpa = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    Button(action: {
+                        education.remove(at: index)
+                    }) {
+                        Text("Remove Education")
+                            .foregroundColor(.red)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
+            }
+            
+            Button(action: {
+                education.append(EducationEntry()) // Add a new empty education entry
+            }) {
+                Text("Add Education")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(fsblue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
+        }
+    }
+}
+
+struct EditableUniversityPreferencesListView: View {
+    @Binding var universities: [EducationEntry]
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            ForEach(universities.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("University", text: Binding(
+                        get: { universities[index].university },
+                        set: { universities[index].university = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("Major", text: Binding(
+                        get: { universities[index].major },
+                        set: { universities[index].major = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    Button(action: {
+                        universities.remove(at: index)
+                    }) {
+                        Text("Remove University")
+                            .foregroundColor(.red)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
+            }
+            
+            Button(action: {
+                universities.append(EducationEntry()) // Add a new empty university entry
+            }) {
+                Text("Add University")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(fsblue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
+        }
+    }
+}
+
+struct EditableLoanListView: View {
+    @Binding var loans: [LoanEntry]
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            ForEach(loans.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("Loan Amount", text: Binding(
+                        get: { loans[index].studentTotalLoanAmount },
+                        set: { loans[index].studentTotalLoanAmount = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("Due Date", text: Binding(
+                        get: { loans[index].studentLoanDueDate },
+                        set: { loans[index].studentLoanDueDate = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    Button(action: {
+                        loans.remove(at: index)
+                    }) {
+                        Text("Remove Loan")
+                            .foregroundColor(.red)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
+            }
+            
+            Button(action: {
+                loans.append(LoanEntry()) // Add a new empty loan entry
+            }) {
+                Text("Add Loan")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(fsblue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
+        }
+    }
+}
+
+
+struct EditableInterestsListView: View {
+    @Binding var interests: [String]
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            ForEach(interests.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("Interest", text: Binding(
+                        get: { interests[index] },
+                        set: { interests[index] = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    Button(action: {
+                        interests.remove(at: index)
+                    }) {
+                        Text("Remove Interest")
+                            .foregroundColor(.red)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
+            }
+            
+            Button(action: {
+                interests.append("") // Add a new empty interest entry
+            }) {
+                Text("Add Interest")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(fsblue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
+        }
+    }
+}
+
+struct EditableProjectsListView: View {
+    @Binding var projects: [ProjectEntry]
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Button(action: {
+                print("projects ", projects)
+            }, label: {
+                Text("Button")
+            })
+            ForEach(projects.indices, id: \.self) { index in
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("Project Name", text: Binding(
+                        get: { projects[index].name },
+                        set: { projects[index].name = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("Description", text: Binding(
+                        get: { projects[index].description },
+                        set: { projects[index].description = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    TextField("Contribution", text: Binding(
+                        get: { projects[index].contribution },
+                        set: { projects[index].contribution = $0 }
+                    ))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                    // Add other fields as necessary
+
+                    Button(action: {
+                        projects.remove(at: index)
+                    }) {
+                        Text("Remove Project")
+                            .foregroundColor(.red)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red.opacity(0.1))
+                            .cornerRadius(8)
+                    }
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 5)
+            }
+            
+            Button(action: {
+                projects.append(ProjectEntry()) // Add a new empty project entry
+            }) {
+                Text("Add Project")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(fsblue)
+                    .cornerRadius(8)
+            }
+            .padding(.top)
+        }
+    }
+}
+
 
     struct ProfileImageView: View {
         @Binding var userData: [String: Any]
