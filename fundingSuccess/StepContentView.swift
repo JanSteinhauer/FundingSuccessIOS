@@ -78,5 +78,5 @@ struct ProjectEntry {
     var contribution: String = ""
     var success: String = ""
     var benefit: String = ""
-    var pictures: [UIImage] = []
+    var pictures: [String] = []
 }

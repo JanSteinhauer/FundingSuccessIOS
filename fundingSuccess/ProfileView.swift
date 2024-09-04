@@ -217,16 +217,21 @@ struct ProfileView: View {
     
     func mapToProjectEntries(_ data: [[String: Any]]) -> [ProjectEntry] {
         return data.map { dict in
-            ProjectEntry(
+            // Extracting pictures as an array of dictionaries and mapping the "url" field
+            let pictures = (dict["pictures"] as? [[String: Any]])?.compactMap { $0["url"] as? String } ?? []
+            
+            return ProjectEntry(
                 name: dict["name"] as? String ?? "",
                 description: dict["description"] as? String ?? "",
                 contribution: dict["contribution"] as? String ?? "",
                 success: dict["success"] as? String ?? "",
                 benefit: dict["benefit"] as? String ?? "",
-                pictures: [] // Assuming you want to handle pictures separately
+                pictures: pictures // Now correctly mapped to URLs
             )
         }
     }
+
+
 }
 
 // Extension to convert the data back to dictionaries for Firestore
@@ -272,10 +277,13 @@ extension ProjectEntry {
             "description": description,
             "contribution": contribution,
             "success": success,
-            "benefit": benefit
+            "benefit": benefit,
+            "pictures": pictures.map { ["url": $0] } // Convert the pictures back to dictionary format
         ]
     }
 }
+
+
 
 
 struct EditableExperienceListView: View {
@@ -545,11 +553,7 @@ struct EditableProjectsListView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Button(action: {
-                print("projects ", projects)
-            }, label: {
-                Text("Button")
-            })
+        
             ForEach(projects.indices, id: \.self) { index in
                 VStack(alignment: .leading, spacing: 15) {
                     TextField("Project Name", text: Binding(
@@ -570,8 +574,35 @@ struct EditableProjectsListView: View {
                     ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                    // Add other fields as necessary
-
+                    // Display images for this project
+                    Text("Project Images")
+                        .font(.headline)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(projects[index].pictures, id: \.self) { imageUrl in
+                                if let url = URL(string: imageUrl) {
+                                    AsyncImage(url: url) { image in
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .padding(5)
+                                    } placeholder: {
+                                        ProgressView() // Placeholder while image is loading
+                                    }
+                                } else {
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 100)
+                                        .foregroundColor(.red)
+                                        .padding(5)
+                                }
+                            }
+                        }
+                    }
+                    
                     Button(action: {
                         projects.remove(at: index)
                     }) {
@@ -603,7 +634,6 @@ struct EditableProjectsListView: View {
         }
     }
 }
-
 
     struct ProfileImageView: View {
         @Binding var userData: [String: Any]
